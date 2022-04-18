@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MultiMonitorRdp": {
+      "commandName": "Project",
+      "commandLineArgs": "\"1,2\" \"test.rdp\""
+    }
+  }
+}
