@@ -1,5 +1,5 @@
 # MultiMonitorRdp
-[![Build and Test](https://github.com/hellcat707hp/MultiMonitorRdp/actions/workflows/buildandtest.yml/badge.svg)](https://github.com/hellcat707hp/MultiMonitorRdp/actions/workflows/buildandtest.yml)
+[![Build](https://github.com/hellcat707hp/MultiMonitorRdp/actions/workflows/build.yml/badge.svg)](https://github.com/hellcat707hp/MultiMonitorRdp/actions/workflows/build.yml)
 
 MultiMonitorRdp is a simple console program designed to make using Windows Remote Desktop client easier with multi-display setups. This program only exists because Windows tends to change which display numbers are which between restarts, sleeps, and even displays waking up.
 ___
