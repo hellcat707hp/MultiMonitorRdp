@@ -21,7 +21,7 @@ Execute the following command:<br>
 ## Notes
 - I can't guarantee this is going to work well with every monitor setup out there. This has been (and will be) only tested with horizontal monitors that go left-to-right and touch at the borders (see diagram below), which is a fairly standard setup.
  ```
- Triple Monitor Example
+ Triple Monitor Example (Numbers are what MultiMonitorRdp expects, *not* the Windows-assigned numbers)
   ___________  ___________  ___________ 
  |           ||           ||           |
  |     0     ||     1     ||     2     |
