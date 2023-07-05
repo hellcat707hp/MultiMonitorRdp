@@ -38,8 +38,13 @@ if (desiredMonitors.Count == 0)
     return;
 }
 
-var displaysltr = (from display in Screen.AllScreens
-                   orderby display.Bounds.Left select display).ToList();
+//Windows will sometimes give monitors arbitrarily high numbers as part of the Screen.DeviceName, like 16, 17, 18, when there's only 3 monitors connected.
+//To adjust for this, we take all the Screens and order them by the number in DeviceName, then set a proper display number based on the index of the item in the resulting list
+int realDisplayNumber = 0;
+var displaysltr = Screen.AllScreens.Select(x => new { Screen = x, DeviceNumber = int.Parse(Regex.Match(x.DeviceName, @"\d+").Value) })
+                   .OrderBy(x => x.DeviceNumber)
+                   .Select(x => new { x.Screen, DisplayNumber = realDisplayNumber++ }) //Setting the "real" display number based on the order of the displays DeviceName number
+                   .OrderBy(x => x.Screen.Bounds.Left).ToList();  //Now, we order them by left-to-right so we can actually set the correct monitors to use
 
 
 //Figure out the actual display numbers that Windows is using so we can hand those to RDP
@@ -52,8 +57,7 @@ foreach (var desiredDisplayNum in desiredMonitors)
         return;
     }
     var display = displaysltr[desiredDisplayNum];
-    int displayNumber = int.Parse(Regex.Match(display.DeviceName, @"\d+").Value) - 1;
-    displayNumbersToUse.Add(displayNumber);
+    displayNumbersToUse.Add(display.DisplayNumber);
 }
 
 if (!File.Exists(args[1]))
