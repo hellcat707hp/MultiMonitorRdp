@@ -30,4 +30,4 @@ Execute the following command:<br>
       
  ```
 
-- Windows is very strange about display numbers even just waking up displays from sleep. Your remote session resizing randomly when waking up displays is totally "normal" and this program cannot fix that. You have to restart your remote session.
+- Windows is very strange about display numbers even just waking up displays from sleep. Your remote session resizing randomly when waking up displays is totally "normal" and this program cannot fix that. You can usually just re-maximize the RDP window to fix it, or you may have to restart your remote session.
